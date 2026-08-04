@@ -172,7 +172,7 @@
   .placeholder { color: var(--text-dim); font-style: italic; }
 
   .sk-group { margin-bottom: 16px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-  .sk-label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); width: 150px; flex-shrink: 0; }
+  .sk-label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); width: 190px; flex-shrink: 0; }
 
   /* ---------- projects ---------- */
   .pa-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; flex-wrap: wrap; gap: 14px; }
@@ -334,43 +334,63 @@
 
     <div class="experience-layout">
       <aside class="experience-rail">
+        <div class="rail-item"><span class="rail-date">Jul 2026 – Aug 2026</span><span class="rail-co">LLNL Data Science Challenge</span></div>
         <div class="rail-item"><span class="rail-date">Jun 2026 – Present</span><span class="rail-co">Marketeq Digital</span></div>
-        <div class="rail-item"><span class="rail-date placeholder">[dates]</span><span class="rail-co">LLNL Data Science Challenge</span></div>
-        <div class="rail-item"><span class="rail-date placeholder">[dates]</span><span class="rail-co">Nuvama Wealth</span></div>
+        <div class="rail-item"><span class="rail-date">Oct 2025 – Present</span><span class="rail-co">Research Assistant</span></div>
+        <div class="rail-item"><span class="rail-date">Jan 2025 – May 2025</span><span class="rail-co">Nuvama Wealth</span></div>
       </aside>
 
       <div class="timeline">
         <div class="w-item">
-          <div class="w-top"><span class="w-co">Marketeq Digital</span><span class="w-date">Jun 2026 – Present</span></div>
-          <div class="w-role">Data Analytics Intern</div>
-          <div class="w-loc">Remote</div>
-          <ul class="w-body">
-            <li>Contributing to a <strong>24-service monorepo</strong> analytics platform built on <strong>Next.js 14</strong> and <strong>FastAPI</strong>.</li>
-            <li class="placeholder">[Add 1–2 more bullets on specific analytics/dashboards/data work once you've done more of the internship]</li>
-          </ul>
-          <div class="w-tags"><span>Next.js 14</span><span>FastAPI</span><span>Analytics</span></div>
-        </div>
-
-        <div class="w-item">
-          <div class="w-top"><span class="w-co">LLNL Data Science Challenge</span><span class="w-date placeholder">[Add exact dates]</span></div>
+          <div class="w-top"><span class="w-co">LLNL Data Science Challenge</span><span class="w-date">Jul 2026 – Aug 2026</span></div>
           <div class="w-role">Selected Participant — Agentic AI Pipeline</div>
           <div class="w-loc">Two-week intensive program for UC Riverside and UC Merced students</div>
           <ul class="w-body">
-            <li>Designed an <strong>agentic AI pipeline</strong> for <strong>CT-based defect detection</strong> in 3D-printed lattice structures, including a <strong>self-correcting registration step</strong> and an <strong>independent validation layer</strong>.</li>
-            <li>Built an interactive dashboard (<strong>FastAPI</strong>, <strong>Streamlit</strong>, <strong>Napari</strong>, <strong>WebSockets</strong>) to visualize scans and defect flags.</li>
-            <li>Presented the work as a <strong>scientific poster</strong> and a <strong>7-minute oral talk</strong> to the cohort.</li>
+            <li>Designed a <strong>self-correcting registration step</strong> for aligning CT scans of 3D-printed lattice structures, addressing misalignment errors that were undermining reliable defect detection in the raw scan data.</li>
+            <li>Built an <strong>independent validation layer</strong> to cross-check the pipeline's own defect flags before reporting, reducing the risk of false positives reaching the research team.</li>
+            <li>Developed an interactive dashboard (<strong>FastAPI</strong>, <strong>Streamlit</strong>, <strong>Napari</strong>, <strong>WebSockets</strong>) so reviewers could visualize scan results and defect flags directly, instead of digging through raw output.</li>
+            <li>Presented the full pipeline as a <strong>scientific poster</strong> and <strong>7-minute oral talk</strong> to the LLNL cohort, communicating the defect-detection approach and validation results to a technical audience.</li>
           </ul>
           <div class="w-tags"><span>Agentic AI</span><span>CT Imaging</span><span>FastAPI</span><span>Streamlit</span><span>Napari</span><span>WebSockets</span></div>
         </div>
 
         <div class="w-item">
-          <div class="w-top"><span class="w-co">Nuvama Wealth and Investment Limited</span><span class="w-date placeholder">[Add dates]</span></div>
-          <div class="w-role">Intern</div>
+          <div class="w-top"><span class="w-co">Marketeq Digital</span><span class="w-date">Jun 2026 – Present</span></div>
+          <div class="w-role">Data Analytics Intern</div>
+          <div class="w-loc">Remote</div>
+          <ul class="w-body">
+            <li>Consolidated fragmented campaign data from <strong>Google Ads</strong>, <strong>Meta</strong>, and <strong>HubSpot</strong> into unified dashboards, replacing manual cross-platform checks and giving the marketing team a faster, single view of performance to guide targeting decisions.</li>
+            <li>Built <strong>B2B data enrichment pipelines</strong> to automatically populate missing firmographic and contact attributes, improving lead completeness and reducing manual research for the sales team.</li>
+            <li>Developed a <strong>predictive lead scoring model</strong> to rank prospects by conversion likelihood, enabling sales representatives to focus outreach on the most promising opportunities.</li>
+            <li>Applied <strong>NLP</strong> and <strong>vector embeddings</strong> to classify lead intent and surface semantically similar customer records, streamlining lead qualification and reducing manual review.</li>
+          </ul>
+          <div class="w-tags"><span>Next.js 14</span><span>FastAPI</span><span>NLP</span><span>Vector Embeddings</span><span>Lead Scoring</span><span>Data Enrichment</span></div>
+        </div>
+
+        <div class="w-item">
+          <div class="w-top"><span class="w-co">UC Riverside</span><span class="w-date">Oct 2025 – Present</span></div>
+          <div class="w-role">Research Assistant, Part-Time (Autoformalization / LLM Reasoning)</div>
+          <div class="w-loc">Riverside, CA</div>
+          <ul class="w-body">
+            <li>Analyzed the <strong>ATF (Autoformalizer with Tool Feedback)</strong> paper on Lean 4 autoformalization, identifying that its LLM-judge consistency check has only ~60% recall and degrades sharply across revision attempts (69.5% → 8.8% success by attempt 8).</li>
+            <li>Proposed a follow-up direction to build a realistic consistency benchmark from <strong>real formalizer failures</strong> — using the released Numina-ATF dataset or an open formalizer like Kimina-Autoformalizer-7B — instead of the paper's synthetic negatives.</li>
+            <li>Designed a <strong>localized, structured judge-feedback</strong> approach — flagging the specific problematic token/quantifier instead of binary pass/fail — to test whether it improves revision success on later attempts, where the current pipeline degrades most.</li>
+            <li>Scoped the proposal to student-project scale (inference-only judge evaluation, or small <strong>LoRA</strong> fine-tuning on 7–8B models) given the original pipeline used 128 NPUs and full 32B fine-tuning.</li>
+          </ul>
+          <div class="w-tags"><span>LLM-as-Judge</span><span>Autoformalization</span><span>Lean 4</span><span>LoRA</span><span>Research</span></div>
+        </div>
+
+        <div class="w-item">
+          <div class="w-top"><span class="w-co">Nuvama Wealth and Investment Limited</span><span class="w-date">Jan 2025 – May 2025</span></div>
+          <div class="w-role">Data Science Intern</div>
           <div class="w-loc">Mumbai, India</div>
           <ul class="w-body">
-            <li>Performed <strong>SQL-based data quality</strong> checks and built analytics workflows on <strong>Amazon Redshift</strong>.</li>
+            <li>Performed <strong>40+ SQL-based negative data checks</strong> across UCC creation, registration codes, and EQ/OTC sync — where mismatched client records risked feeding bad data into portfolio recommendations — driving data accuracy to ~99%+ across client buckets.</li>
+            <li>Built <strong>Python Selenium scripts</strong> to automate portfolio syncing, replacing manual PAN-by-PAN entry into the MARS platform, so hundreds of client portfolios could sync without per-client manual work.</li>
+            <li>Reviewed <strong>40+ high-net-worth client portfolios</strong> in Excel (Pivot Tables, VLOOKUP/XLOOKUP, conditional formatting) to flag tail-end holdings under 1% of portfolio value, giving RMs a clear view of allocation gaps to act on.</li>
+            <li>Analyzed synced portfolio data from <strong>Tableau</strong> using <strong>Pandas</strong>, <strong>NumPy</strong>, and <strong>SciPy</strong> to assess risk and diversification, feeding directly into rebalancing strategies aligned to each client's age and risk profile.</li>
           </ul>
-          <div class="w-tags"><span>SQL</span><span>Redshift</span><span>Data Quality</span></div>
+          <div class="w-tags"><span>SQL</span><span>Python</span><span>Selenium</span><span>Pandas</span><span>NumPy</span><span>SciPy</span><span>Tableau</span><span>Excel</span></div>
         </div>
       </div>
     </div>
@@ -380,14 +400,20 @@
     <div class="w-item">
       <div class="w-top"><span class="w-co">University of California, Riverside</span><span class="w-date">Expected Dec 2026</span></div>
       <div class="w-role">M.S. Computational Data Science</div>
-      <div class="w-loc placeholder">[Add relevant coursework]</div>
+      <div class="w-loc">Coursework: Artificial Intelligence, Data Mining Techniques, Database Management Systems, Colloquium in Computer Science, DS Ethics, Foundations of Machine Learning, Data Analytics and Exploration, Natural Language Processing, Introduction to Deep Learning, Advanced Machine Learning.</div>
     </div>
 
     <div class="spacer"></div>
     <h2 class="sec-title">Skills</h2>
-    <div class="sk-group"><div class="sk-label">Languages</div><div class="w-tags"><span>Python</span><span>SQL</span></div></div>
-    <div class="sk-group"><div class="sk-label">ML / AI</div><div class="w-tags"><span>PyTorch</span><span>LangGraph</span><span>XGBoost</span><span>LoRA</span><span>SFT / DPO</span><span>RAG</span><span>LLM-as-Judge</span></div></div>
-    <div class="sk-group"><div class="sk-label">Data & Infra</div><div class="w-tags"><span>PySpark</span><span>Databricks</span><span>Snowflake</span><span>Pinecone</span><span>Airflow</span><span>dbt</span><span>FastAPI</span><span>GCP</span><span>Streamlit</span></div></div>
+    <div class="sk-group"><div class="sk-label">Languages</div><div class="w-tags"><span>Python</span><span>SQL</span><span>Java</span><span>Scala</span><span>JavaScript</span><span>TypeScript</span><span>C++</span><span>Bash/Shell</span><span>HTML</span><span>YAML</span></div></div>
+    <div class="sk-group"><div class="sk-label">ML / DL / NLP</div><div class="w-tags"><span>PyTorch</span><span>TensorFlow</span><span>TensorFlow Lite</span><span>scikit-learn</span><span>Keras</span><span>XGBoost</span><span>CNNs</span><span>Transformers</span><span>Fine-Tuning</span><span>LoRA</span><span>SFT / DPO</span><span>BERT</span><span>GPT</span><span>Hugging Face</span><span>OpenCV</span><span>Feature Engineering</span></div></div>
+    <div class="sk-group"><div class="sk-label">Agentic AI & LLMs</div><div class="w-tags"><span>LangChain</span><span>LangGraph</span><span>RAG Pipelines</span><span>Agentic Workflows</span><span>LLM APIs</span><span>OpenAI API</span><span>Embedding Models</span><span>Vector Search</span><span>LLM-as-Judge</span></div></div>
+    <div class="sk-group"><div class="sk-label">Data Engineering & Big Data</div><div class="w-tags"><span>ETL/ELT</span><span>Apache Spark (PySpark)</span><span>Hadoop</span><span>Kafka</span><span>Hive</span><span>Apache Airflow</span><span>dbt</span><span>Batch & Stream Processing</span><span>Data Modeling</span><span>Databricks</span><span>RabbitMQ</span></div></div>
+    <div class="sk-group"><div class="sk-label">Databases & Warehouses</div><div class="w-tags"><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>SQLite</span><span>Firebase</span><span>DynamoDB</span><span>Elasticsearch</span><span>Snowflake</span><span>Pinecone</span><span>Vector DBs</span><span>GraphQL</span></div></div>
+    <div class="sk-group"><div class="sk-label">Cloud & DevOps</div><div class="w-tags"><span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span><span>GCP (BigQuery)</span><span>Azure</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>CI/CD</span><span>Jenkins</span><span>GitHub Actions</span><span>Prometheus</span><span>MLflow</span><span>Weights & Biases</span></div></div>
+    <div class="sk-group"><div class="sk-label">Frameworks & Web</div><div class="w-tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Flask</span><span>FastAPI</span><span>Django</span><span>Spring Boot</span><span>Redux</span><span>Tailwind CSS</span><span>Angular</span><span>Vue.js</span></div></div>
+    <div class="sk-group"><div class="sk-label">Systems & Architecture</div><div class="w-tags"><span>Microservices</span><span>REST APIs</span><span>WebSockets</span><span>gRPC</span></div></div>
+    <div class="sk-group"><div class="sk-label">Tools & Testing</div><div class="w-tags"><span>Git</span><span>Linux</span><span>Postman</span><span>Excel</span><span>Visual Basic</span><span>Streamlit</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span><span>JUnit</span><span>PyTest</span><span>Jest</span><span>Cypress</span><span>Selenium</span></div></div>
   </div>
 </div>
 
