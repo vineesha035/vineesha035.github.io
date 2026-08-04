@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vineesha — Data Science & Agentic AI</title>
+<meta name="description" content="Vineesha is an M.S. Computational Data Science student at UC Riverside and Data Analytics Intern at Marketeq Digital, building agentic AI pipelines, fraud models, and data infrastructure.">
+<meta name="author" content="Vineesha">
+
+<!-- TODO: fill these in once you have a public URL / handle -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vineesha | Data Science & Agentic AI">
+<meta property="og:description" content="M.S. Computational Data Science @ UC Riverside. Building agentic pipelines, fraud models, and data infrastructure.">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+    --accent: #2E4DE0;
+    --accent-2: #1E8A72;
+    --accent-3: #C4581F;
+    --transition: 0.25s ease;
+    --radius: 3px;
+  }
+
+  [data-theme="light"] {
+    --bg: #F2F0E9;
+    --bg-nav: rgba(242, 240, 233, 0.9);
+    --surface: #FBFAF6;
+    --border: #DAD6C9;
+    --border-hover: #B6B1A0;
+    --text: #1C1D1B;
+    --text-strong: #0A0A09;
+    --text-mid: #4A4A46;
+    --text-dim: #837E71;
+    --dot: rgba(28,29,27,0.14);
+    --card-shadow: 0 4px 20px rgba(20,20,15,0.08);
+  }
+
+  [data-theme="dark"] {
+    --bg: #101216;
+    --bg-nav: rgba(16, 18, 22, 0.9);
+    --surface: #16181D;
+    --border: #262930;
+    --border-hover: #3C4048;
+    --text: #E4E2DA;
+    --text-strong: #FAF9F5;
+    --text-mid: #A9A7A0;
+    --text-dim: #6E7178;
+    --dot: rgba(228,226,218,0.10);
+    --card-shadow: 0 8px 28px rgba(0,0,0,0.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--transition), color var(--transition);
+  }
+  body { overflow-x: hidden; }
+
+  ::selection { background: var(--accent); color: #fff; }
+  a { color: inherit; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 40px; height: 58px;
+    background: var(--bg-nav);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-name { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--text-strong); }
+  .nav-tabs { display: flex; gap: 2px; }
+  .nav-tabs button {
+    background: none; border: none; border-bottom: 2px solid transparent;
+    color: var(--text-dim); font-family: var(--sans); font-size: 14px; font-weight: 500;
+    padding: 18px 15px; cursor: pointer; transition: all 0.2s;
+  }
+  .nav-tabs button:hover { color: var(--text); }
+  .nav-tabs button.active { color: var(--text-strong); border-bottom-color: var(--accent); }
+  .theme-toggle {
+    width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border);
+    background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .theme-toggle svg { width: 15px; height: 15px; stroke: var(--text-mid); fill: none; stroke-width: 1.8; }
+  [data-theme="light"] .icon-moon, [data-theme="dark"] .icon-sun { display: none; }
+
+  /* ---------- pages ---------- */
+  .page { display: none; padding-top: 58px; min-height: 100vh; }
+  .page.active { display: block; }
+  .inner { max-width: 880px; margin: 0 auto; padding: 70px 32px 120px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    max-width: 880px; margin: 0 auto; padding: 110px 32px 90px;
+    display: flex; flex-direction: column; gap: 26px;
+    overflow: hidden;
+  }
+  .lattice-bg {
+    position: absolute; top: -20px; right: -40px; width: 340px; height: 340px;
+    display: grid; grid-template-columns: repeat(10, 1fr); gap: 20px;
+    opacity: 0.9; pointer-events: none; z-index: 0;
+  }
+  .lattice-bg span { width: 4px; height: 4px; border-radius: 50%; background: var(--dot); }
+  .hero-tag {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); position: relative; z-index: 1;
+  }
+  .hero-name { font-family: var(--serif); font-weight: 600; font-size: 58px; letter-spacing: -0.01em; color: var(--text-strong); position: relative; z-index: 1; }
+  .hero-thesis { font-size: 19px; line-height: 1.55; color: var(--text-mid); max-width: 560px; position: relative; z-index: 1; }
+  .hero-thesis .accent { color: var(--text-strong); font-weight: 600; }
+  .hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; position: relative; z-index: 1; }
+  .hero-bullets li { font-size: 15px; color: var(--text-mid); padding-left: 16px; position: relative; }
+  .hero-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .hero-bullets strong { color: var(--text-strong); font-weight: 600; }
+  .hero-links { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .hero-link {
+    display: flex; align-items: center; gap: 7px;
+    padding: 9px 16px; border: 1px solid var(--border); border-radius: var(--radius);
+    text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--text);
+    transition: all 0.2s;
+  }
+  .hero-link:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-link svg { width: 15px; height: 15px; fill: currentColor; }
+
+  /* ---------- section headers ---------- */
+  .sec-title { font-family: var(--serif); font-size: 32px; font-weight: 600; color: var(--text-strong); margin-bottom: 6px; }
+  .sec-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; }
+  .spacer { height: 56px; }
+
+  /* ---------- experience ---------- */
+  .experience-layout { display: grid; grid-template-columns: 150px 1fr; gap: 40px; }
+  .experience-rail { display: flex; flex-direction: column; gap: 34px; padding-top: 6px; }
+  .rail-item { display: flex; flex-direction: column; gap: 3px; }
+  .rail-date { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+  .rail-co { font-size: 13.5px; font-weight: 600; color: var(--text-mid); }
+  .timeline { display: flex; flex-direction: column; gap: 34px; }
+  .w-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 26px; background: var(--surface); }
+  .w-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex-wrap: wrap; gap: 6px; }
+  .w-co { font-weight: 600; font-size: 15.5px; color: var(--text-strong); }
+  .w-date { font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+  .w-role { font-size: 14.5px; color: var(--accent); font-weight: 500; margin-bottom: 2px; }
+  .w-loc { font-size: 12.5px; color: var(--text-dim); margin-bottom: 12px; }
+  .w-body { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .w-body li { font-size: 14.5px; line-height: 1.55; color: var(--text-mid); padding-left: 14px; position: relative; }
+  .w-body li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .w-body strong { color: var(--text-strong); font-weight: 600; }
+  .w-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .w-tags span, .pa-chips span, .pa-tags span {
+    font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: 20px;
+    background: var(--accent-soft, rgba(46,77,224,0.08)); color: var(--accent); border: 1px solid transparent;
+  }
+  .placeholder { color: var(--text-dim); font-style: italic; }
+
+  .sk-group { margin-bottom: 16px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .sk-label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); width: 150px; flex-shrink: 0; }
+
+  /* ---------- projects ---------- */
+  .pa-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; flex-wrap: wrap; gap: 14px; }
+  .pa-toggle { display: flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+  .pa-toggle button { background: none; border: none; padding: 7px 16px; font-size: 13px; font-family: var(--sans); font-weight: 500; color: var(--text-dim); cursor: pointer; }
+  .pa-toggle button.active { background: var(--accent); color: #fff; }
+  .pa-thesis { font-size: 15px; color: var(--text-mid); max-width: 620px; margin: 18px 0 34px; }
+  .pa-thesis .g { color: var(--accent); font-weight: 600; }
+
+  .pa-cluster { margin-bottom: 34px; }
+  .pa-cl-band { display: flex; align-items: center; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .pa-num { font-family: var(--mono); font-size: 12px; color: var(--cc); }
+  .pa-txt h3 { font-size: 17px; font-weight: 600; color: var(--text-strong); }
+  .pa-sub { font-size: 12.5px; color: var(--text-dim); }
+  .pa-cnt { margin-left: auto; font-family: var(--mono); font-size: 11.5px; color: var(--text-dim); }
+  .pa-cl-body { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pa-pcard {
+    text-align: left; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+    padding: 18px 20px; cursor: pointer; transition: all 0.2s; font-family: var(--sans);
+  }
+  .pa-pcard:hover { border-color: var(--cc); transform: translateY(-1px); box-shadow: var(--card-shadow); }
+  .pa-pt { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; gap: 8px; }
+  .pa-pt b { font-size: 15px; color: var(--text-strong); }
+  .pa-ex { font-size: 11px; color: var(--cc); white-space: nowrap; }
+  .pa-pcard p { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; margin-bottom: 10px; }
+  .pa-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pa-chips span { color: var(--cc); }
+
+  .pa-stage { display: none; position: relative; }
+  .pa-stage.on { display: block; }
+  .pa-list.off { display: none; }
+  .pa-graph { width: 100%; height: auto; }
+  .pa-halo text { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; }
+  .pa-node { cursor: pointer; }
+  .pa-ring { fill: none; stroke-width: 1; opacity: 0; transition: opacity 0.2s; }
+  .pa-node:hover .pa-ring, .pa-node.hotn .pa-ring { opacity: 0.5; }
+  .pa-core { transition: r 0.2s; }
+  .pa-glyph { font-family: var(--mono); font-size: 10px; fill: #fff; text-anchor: middle; pointer-events: none; }
+  .pa-lbl { font-family: var(--sans); font-size: 11.5px; fill: var(--text-mid); pointer-events: none; }
+  .pa-edge { fill: none; stroke-width: 1; opacity: 0.35; }
+  .pa-node.faded, .pa-halo.faded { opacity: 0.28; }
+  .pa-edge.faded { opacity: 0.08; }
+  .pa-edge.hot { opacity: 0.9; stroke-width: 1.5; }
+  .pa-card {
+    position: absolute; width: 260px; padding: 16px 18px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--card-shadow);
+    opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 5;
+  }
+  .pa-card.show { opacity: 1; pointer-events: auto; }
+  .pa-ct { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .pa-cdot { width: 8px; height: 8px; border-radius: 50%; }
+  .pa-ct h3 { font-size: 14.5px; }
+  .pa-meta { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .pa-card p { font-size: 13px; color: var(--text-mid); line-height: 1.5; margin-bottom: 8px; }
+  .pa-more { font-size: 11px; color: var(--text-dim); }
+  .pa-hint { text-align: center; font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+
+  .pa-modal {
+    display: none; position: fixed; inset: 0; z-index: 200; background: rgba(10,10,9,0.55);
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  .pa-modal.show { display: flex; }
+  .pa-modal-box {
+    position: relative; max-width: 540px; width: 100%; max-height: 82vh; overflow-y: auto;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 34px 36px;
+  }
+  .pa-modal-x { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 22px; color: var(--text-dim); cursor: pointer; }
+  .pa-m-ct { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .pa-m-ct h3 { font-family: var(--serif); font-size: 22px; }
+  .pa-full { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 16px 0 20px; }
+  .pa-full li { font-size: 14.5px; line-height: 1.6; color: var(--text-mid); padding-left: 15px; position: relative; }
+  .pa-full li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .pa-m-sub { font-family: var(--mono); font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+  .pa-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .pa-links a { font-size: 13.5px; color: var(--accent); text-decoration: none; margin-right: 16px; }
+
+  /* ---------- contact ---------- */
+  .contact-box { max-width: 560px; }
+  .contact-lead { font-size: 17px; color: var(--text-mid); line-height: 1.6; margin-bottom: 30px; }
+  .contact-rows { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); }
+  .contact-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .contact-row .k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); }
+  .contact-row a { font-size: 15px; text-decoration: none; color: var(--text-strong); font-weight: 500; }
+  .contact-row a:hover { color: var(--accent); }
+
+  @media (max-width: 760px) {
+    nav { padding: 0 18px; }
+    .nav-left { gap: 20px; }
+    .nav-tabs button { padding: 18px 9px; font-size: 13px; }
+    .hero { padding: 90px 22px 60px; }
+    .hero-name { font-size: 40px; }
+    .inner { padding: 50px 20px 90px; }
+    .experience-layout { grid-template-columns: 1fr; }
+    .experience-rail { display: none; }
+    .pa-cl-body { grid-template-columns: 1fr; }
+    .lattice-bg { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <div class="nav-name">Vineesha</div>
+    <div class="nav-tabs">
+      <button class="active" onclick="go('home', this)">Home</button>
+      <button onclick="go('experience', this)">Experience</button>
+      <button onclick="go('projects', this)">Projects</button>
+      <button onclick="go('contact', this)">Contact</button>
+    </div>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="lattice-bg" id="latticeBg"></div>
+    <div class="hero-tag">M.S. Computational Data Science · UC Riverside</div>
+    <h1 class="hero-name">Vineesha <span class="placeholder">[Last Name]</span></h1>
+    <p class="hero-thesis">I turn messy, real-world signals into <span class="accent">decisions</span> — agentic pipelines, fraud models, and data infrastructure that hold up outside a notebook.</p>
+    <ul class="hero-bullets">
+      <li><strong>M.S. Computational Data Science</strong> @ UC Riverside — expected Dec 2026</li>
+      <li>Currently <strong>Data Analytics Intern</strong> @ <strong>Marketeq Digital</strong> (remote, through Dec 2026)</li>
+      <li>Selected for the <strong>LLNL Data Science Challenge</strong> — built an agentic pipeline for CT-based defect detection in 3D-printed lattice structures</li>
+      <li>Interested in <strong>Agentic AI</strong>, <strong>Multi-Agent LLM Pipelines</strong>, <strong>Full-Stack Data Engineering</strong>, and <strong>ML Research</strong></li>
+    </ul>
+    <div class="hero-links">
+      <a class="hero-link" href="mailto:your.email@example.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Email
+      </a>
+      <a class="hero-link" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a class="hero-link" href="https://github.com/vineesha035" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="page" id="page-experience">
+  <div class="inner">
+    <h2 class="sec-title">Work</h2>
+    <p class="sec-sub">Where I've worked and what I've built.</p>
+
+    <div class="experience-layout">
+      <aside class="experience-rail">
+        <div class="rail-item"><span class="rail-date">Jun 2026 – Present</span><span class="rail-co">Marketeq Digital</span></div>
+        <div class="rail-item"><span class="rail-date placeholder">[dates]</span><span class="rail-co">LLNL Data Science Challenge</span></div>
+        <div class="rail-item"><span class="rail-date placeholder">[dates]</span><span class="rail-co">Nuvama Wealth</span></div>
+      </aside>
+
+      <div class="timeline">
+        <div class="w-item">
+          <div class="w-top"><span class="w-co">Marketeq Digital</span><span class="w-date">Jun 2026 – Present</span></div>
+          <div class="w-role">Data Analytics Intern</div>
+          <div class="w-loc">Remote</div>
+          <ul class="w-body">
+            <li>Contributing to a <strong>24-service monorepo</strong> analytics platform built on <strong>Next.js 14</strong> and <strong>FastAPI</strong>.</li>
+            <li class="placeholder">[Add 1–2 more bullets on specific analytics/dashboards/data work once you've done more of the internship]</li>
+          </ul>
+          <div class="w-tags"><span>Next.js 14</span><span>FastAPI</span><span>Analytics</span></div>
+        </div>
+
+        <div class="w-item">
+          <div class="w-top"><span class="w-co">LLNL Data Science Challenge</span><span class="w-date placeholder">[Add exact dates]</span></div>
+          <div class="w-role">Selected Participant — Agentic AI Pipeline</div>
+          <div class="w-loc">Two-week intensive program for UC Riverside and UC Merced students</div>
+          <ul class="w-body">
+            <li>Designed an <strong>agentic AI pipeline</strong> for <strong>CT-based defect detection</strong> in 3D-printed lattice structures, including a <strong>self-correcting registration step</strong> and an <strong>independent validation layer</strong>.</li>
+            <li>Built an interactive dashboard (<strong>FastAPI</strong>, <strong>Streamlit</strong>, <strong>Napari</strong>, <strong>WebSockets</strong>) to visualize scans and defect flags.</li>
+            <li>Presented the work as a <strong>scientific poster</strong> and a <strong>7-minute oral talk</strong> to the cohort.</li>
+          </ul>
+          <div class="w-tags"><span>Agentic AI</span><span>CT Imaging</span><span>FastAPI</span><span>Streamlit</span><span>Napari</span><span>WebSockets</span></div>
+        </div>
+
+        <div class="w-item">
+          <div class="w-top"><span class="w-co">Nuvama Wealth and Investment Limited</span><span class="w-date placeholder">[Add dates]</span></div>
+          <div class="w-role">Intern</div>
+          <div class="w-loc">Mumbai, India</div>
+          <ul class="w-body">
+            <li>Performed <strong>SQL-based data quality</strong> checks and built analytics workflows on <strong>Amazon Redshift</strong>.</li>
+          </ul>
+          <div class="w-tags"><span>SQL</span><span>Redshift</span><span>Data Quality</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    <h2 class="sec-title">Education</h2>
+    <div class="w-item">
+      <div class="w-top"><span class="w-co">University of California, Riverside</span><span class="w-date">Expected Dec 2026</span></div>
+      <div class="w-role">M.S. Computational Data Science</div>
+      <div class="w-loc placeholder">[Add relevant coursework]</div>
+    </div>
+
+    <div class="spacer"></div>
+    <h2 class="sec-title">Skills</h2>
+    <div class="sk-group"><div class="sk-label">Languages</div><div class="w-tags"><span>Python</span><span>SQL</span></div></div>
+    <div class="sk-group"><div class="sk-label">ML / AI</div><div class="w-tags"><span>PyTorch</span><span>LangGraph</span><span>XGBoost</span><span>LoRA</span><span>SFT / DPO</span><span>RAG</span><span>LLM-as-Judge</span></div></div>
+    <div class="sk-group"><div class="sk-label">Data & Infra</div><div class="w-tags"><span>PySpark</span><span>Databricks</span><span>Snowflake</span><span>Pinecone</span><span>Airflow</span><span>dbt</span><span>FastAPI</span><span>GCP</span><span>Streamlit</span></div></div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="page-projects">
+  <div class="inner">
+    <div id="projects-atlas">
+      <div class="pa-head">
+        <div>
+          <h2 class="sec-title">Projects</h2>
+          <p class="sec-sub" style="margin-bottom:0">Agentic pipelines, fraud models, and data infrastructure.</p>
+        </div>
+        <div class="pa-toggle">
+          <button id="pa-tl" class="active" onclick="paSetView('list')">≡ List</button>
+          <button id="pa-tg" onclick="paSetView('graph')">◌ Map</button>
+        </div>
+      </div>
+      <div class="pa-thesis">Three focus areas: <span class="g">agentic AI</span>, <span class="g">data engineering</span>, and <span class="g">applied ML</span>. Click any project for the full write-up.</div>
+
+      <div class="pa-list" id="pa-list"></div>
+      <div class="pa-stage" id="pa-stage">
+        <svg id="pa-svg" class="pa-graph" viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+          <g id="pa-halos"></g><g id="pa-edges"></g><g id="pa-nodes"></g>
+        </svg>
+        <div class="pa-card" id="pa-card"></div>
+        <div class="pa-hint">Hover to preview · click any node for the full write-up</div>
+      </div>
+      <div class="pa-modal" id="pa-modal"><div class="pa-modal-box" id="pa-modalBox"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="inner">
+    <h2 class="sec-title">Contact</h2>
+    <div class="contact-box">
+      <p class="contact-lead">I'm actively looking for full-time and internship roles in software engineering, AI engineering, and data science. Reach out — I usually reply within a day or two.</p>
+      <div class="contact-rows">
+        <div class="contact-row"><span class="k">Email</span><a href="mailto:your.email@example.com" class="placeholder">your.email@example.com</a></div>
+        <div class="contact-row"><span class="k">LinkedIn</span><a href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener" class="placeholder">linkedin.com/in/your-handle</a></div>
+        <div class="contact-row"><span class="k">GitHub</span><a href="https://github.com/vineesha035" target="_blank" rel="noopener">github.com/vineesha035</a></div>
+        <div class="contact-row"><span class="k">Location</span><span style="font-size:15px;color:var(--text-mid)">California, USA</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- theme ---------- */
+function toggleTheme(){
+  const html=document.documentElement;
+  const next = html.getAttribute('data-theme')==='light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+(function(){ const saved=localStorage.getItem('theme'); if(saved) document.documentElement.setAttribute('data-theme', saved); })();
+
+/* ---------- lattice hero decoration ---------- */
+(function(){
+  const el=document.getElementById('latticeBg');
+  for(let i=0;i<90;i++){ const s=document.createElement('span'); s.style.opacity=(0.3+Math.random()*0.7); el.appendChild(s); }
+})();
+
+/* ---------- nav ---------- */
+function go(id, btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+/* ---------- projects data ---------- */
+const CL = {
+  agentic: { name:'Agentic AI', sub:'Multi-agent pipelines & LLM orchestration', hex:'#2E4DE0' },
+  data:    { name:'Data Engineering', sub:'Pipelines, warehousing, orchestration', hex:'#1E8A72' },
+  ml:      { name:'Applied ML', sub:'Models trained and shipped on real data', hex:'#C4581F' },
+};
+
+const N = [
+  { id:'investorintel', label:'InvestorIntel', cl:'agentic', g:'II',
+    desc:'A 5-agent LangGraph pipeline coordinating retrieval, analysis, and report-writing for investment research.',
+    full:['Architected a 5-agent pipeline in LangGraph, splitting retrieval, analysis, and report-writing across dedicated agents.',
+      'Used Snowflake for structured data and Pinecone for vector retrieval, orchestrated with Airflow.',
+      'Exposed the pipeline through a FastAPI service deployed on GCP.'],
+    tags:['LangGraph','Snowflake','Pinecone','Airflow','FastAPI','GCP'], links:[] },
+  { id:'safehive', label:'SafeHive', cl:'agentic', g:'SH',
+    desc:'An adversarial LLM sandbox for stress-testing agent behavior under adversarial prompts.',
+    full:['Built a sandbox environment to run adversarial LLM interactions and observe failure modes and unsafe behaviors.'],
+    tags:['LLM Safety','Adversarial Testing','Python'], links:[] },
+  { id:'querycraft', label:'QueryCraft-AI', cl:'agentic', g:'QC',
+    desc:'LoRA fine-tuned SQLCoder-7B with a RAG layer for natural-language-to-SQL generation.',
+    full:['Fine-tuned SQLCoder-7B using LoRA for a natural-language-to-SQL task.',
+      'Combined fine-tuning with a RAG layer for schema grounding, reaching 87.5% accuracy on held-out queries.'],
+    tags:['LoRA','SQLCoder-7B','RAG','Fine-tuning'], links:[] },
+  { id:'dynaledger', label:'DynaLedger', cl:'data', g:'DL',
+    desc:'An SEC filings ingestion and modeling pipeline orchestrated with Airflow and dbt.',
+    full:['Built an ingestion and transformation pipeline for SEC filings data using Airflow for orchestration and dbt for modeling.',
+      'Loaded and modeled the data in Snowflake for downstream analytics.'],
+    tags:['Airflow','dbt','Snowflake'], links:[] },
+  { id:'marketeq', label:'Marketeq Platform', cl:'data', g:'MP',
+    desc:'Contributing to a 24-service monorepo analytics platform at Marketeq Digital.',
+    full:['Working within a 24-service monorepo analytics platform built on Next.js 14 and FastAPI.'],
+    tags:['Next.js 14','FastAPI','Monorepo'], links:[] },
+  { id:'fraudsentinel', label:'FraudSentinel', cl:'ml', g:'FS',
+    desc:'A fraud detection model trained on 590K+ transactions, reaching 0.946 AUC-ROC.',
+    full:['Built a fraud detection pipeline on Databricks using PySpark for large-scale feature engineering across 590K+ transactions.',
+      'Trained an XGBoost classifier reaching 0.946 AUC-ROC.'],
+    tags:['PySpark','Databricks','XGBoost','AUC-ROC 0.946'], links:[] },
+  { id:'ctdefect', label:'CT Defect Detection', cl:'ml', g:'CT',
+    desc:'Agentic pipeline for CT-based defect detection in 3D-printed lattice structures (LLNL Data Science Challenge).',
+    full:['Designed a self-correcting registration step to align CT scans of lattice structures.',
+      'Built an independent validation layer to check defect flags before reporting.',
+      'Built an interactive dashboard (FastAPI, Streamlit, Napari, WebSockets) for visualizing results.'],
+    tags:['CT Imaging','Agentic AI','FastAPI','Streamlit','Napari'], links:[] },
+];
+const E = [ {a:'investorintel',b:'querycraft'}, {a:'dynaledger',b:'marketeq'}, {a:'fraudsentinel',b:'ctdefect'} ];
+
+const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
+const order=['agentic','data','ml'];
+
+/* fixed hand-placed layout (three clusters) */
+const POS = {
+  investorintel:{x:230,y:150}, safehive:{x:130,y:260}, querycraft:{x:290,y:280},
+  dynaledger:{x:620,y:150}, marketeq:{x:730,y:270},
+  fraudsentinel:{x:430,y:470}, ctdefect:{x:600,y:470},
+};
+N.forEach(n=>{ n.x=POS[n.id].x; n.y=POS[n.id].y; n.r=26; });
+const HALO = {
+  agentic:{hx:215,hy:220,rx:150,ry:130,tx:215,ty:70},
+  data:{hx:675,hy:210,rx:150,ry:130,tx:675,ty:70},
+  ml:{hx:515,hy:470,rx:190,ry:100,tx:515,ty:590},
+};
+
+const root=document.getElementById('projects-atlas');
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('pa-svg');
+const gH=document.getElementById('pa-halos'), gE=document.getElementById('pa-edges'), gN=document.getElementById('pa-nodes');
+const card=document.getElementById('pa-card'); const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
+const listEl=document.getElementById('pa-list');
+
+/* ---- LIST ---- */
+order.forEach((k,i)=>{
+  const c=CL[k]; const items=N.filter(n=>n.cl===k);
+  const clDiv=document.createElement('div'); clDiv.className='pa-cluster'; clDiv.style.setProperty('--cc', c.hex);
+  let cards='';
+  items.forEach(n=>{ cards+=`<button class="pa-pcard" data-id="${n.id}"><div class="pa-pt"><b>${n.label}</b><span class="pa-ex">full write-up →</span></div><p>${n.desc}</p><div class="pa-chips">${n.tags.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div></button>`; });
+  clDiv.innerHTML=`<div class="pa-cl-band"><span class="pa-num">${String(i+1).padStart(2,'0')}</span><div class="pa-txt"><h3>${c.name}</h3><div class="pa-sub">${c.sub}</div></div><span class="pa-cnt">${items.length} project${items.length>1?'s':''}</span></div><div class="pa-cl-body">${cards}</div>`;
+  listEl.appendChild(clDiv);
+});
+listEl.addEventListener('click', e=>{ const b=e.target.closest('.pa-pcard'); if(b) paOpenModal(b.dataset.id); });
+
+/* ---- MAP ---- */
+Object.entries(HALO).forEach(([k,h])=>{
+  const c=CL[k]; const g=document.createElementNS(NS,'g'); g.setAttribute('class','pa-halo'); g.dataset.cl=k;
+  const e=document.createElementNS(NS,'ellipse');
+  e.setAttribute('cx',h.hx); e.setAttribute('cy',h.hy); e.setAttribute('rx',h.rx); e.setAttribute('ry',h.ry);
+  e.setAttribute('fill',c.hex); e.setAttribute('fill-opacity','0.06'); e.setAttribute('stroke',c.hex); e.setAttribute('stroke-opacity','0.2');
+  const t=document.createElementNS(NS,'text'); t.setAttribute('class','pa-cl-title'); t.setAttribute('x',h.tx); t.setAttribute('y',h.ty); t.setAttribute('text-anchor','middle'); t.setAttribute('fill',c.hex); t.textContent=c.name.toUpperCase();
+  g.append(e,t); gH.appendChild(g);
+});
+function curve(a,b){ const mx=(a.x+b.x)/2, my=(a.y+b.y)/2, dx=b.x-a.x, dy=b.y-a.y; return `M ${a.x} ${a.y} Q ${mx-dy*0.15} ${my+dx*0.15} ${b.x} ${b.y}`; }
+E.forEach(e=>{ const a=nodeById[e.a], b=nodeById[e.b]; const p=document.createElementNS(NS,'path'); p.setAttribute('class','pa-edge'); p.setAttribute('d',curve(a,b)); p.setAttribute('stroke',CL[a.cl].hex); e.line=p; gE.appendChild(p); });
+
+const nodeEls={};
+N.forEach(n=>{
+  const g=document.createElementNS(NS,'g'); g.setAttribute('class','pa-node'); g.dataset.id=n.id; g.setAttribute('transform',`translate(${n.x},${n.y})`);
+  const ring=document.createElementNS(NS,'circle'); ring.setAttribute('class','pa-ring'); ring.setAttribute('r',n.r+5); ring.setAttribute('stroke',CL[n.cl].hex);
+  const core=document.createElementNS(NS,'circle'); core.setAttribute('class','pa-core'); core.setAttribute('r',n.r); core.setAttribute('fill',CL[n.cl].hex);
+  const gl=document.createElementNS(NS,'text'); gl.setAttribute('class','pa-glyph'); gl.setAttribute('y','4'); gl.textContent=n.g;
+  const lbl=document.createElementNS(NS,'text'); lbl.setAttribute('class','pa-lbl'); lbl.setAttribute('x',0); lbl.setAttribute('y',n.r+18); lbl.setAttribute('text-anchor','middle'); lbl.textContent=n.label;
+  g.append(ring,core,gl,lbl); gN.appendChild(g); nodeEls[n.id]={g};
+  g.addEventListener('mouseenter',()=>paFocus(n.id));
+  g.addEventListener('mouseleave',paScheduleBlur);
+  g.addEventListener('click',()=>paOpenModal(n.id));
+});
+
+let blurT;
+function neighbors(id){ const s=new Set([id]); E.forEach(e=>{ if(e.a===id)s.add(e.b); if(e.b===id)s.add(e.a); }); return s; }
+function paFocus(id){
+  clearTimeout(blurT); const nb=neighbors(id); const me=nodeById[id];
+  N.forEach(n=>nodeEls[n.id].g.classList.toggle('faded', !nb.has(n.id)));
+  nodeEls[id].g.classList.add('hotn');
+  root.querySelectorAll('.pa-halo').forEach(h=>h.classList.toggle('faded', h.dataset.cl!==me.cl));
+  E.forEach(e=>{ const on=(e.a===id||e.b===id); e.line.classList.toggle('hot',on); e.line.classList.toggle('faded',!on); });
+  paShowCard(id);
+}
+function paScheduleBlur(){ blurT=setTimeout(()=>{ if(!card.matches(':hover')) paBlur(); },140); }
+function paBlur(){
+  N.forEach(n=>nodeEls[n.id].g.classList.remove('faded','hotn'));
+  root.querySelectorAll('.pa-halo').forEach(h=>h.classList.remove('faded'));
+  E.forEach(e=>e.line.classList.remove('hot','faded'));
+  card.classList.remove('show');
+}
+card.addEventListener('mouseleave', paBlur);
+function paShowCard(id){
+  const n=nodeById[id], col=CL[n.cl].hex;
+  card.innerHTML=`<div class="pa-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div><div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div><p>${n.desc}</p><div class="pa-more">click for full details →</div>`;
+  const pt=svg.createSVGPoint(); pt.x=n.x; pt.y=n.y; const sc=pt.matrixTransform(svg.getScreenCTM());
+  const sb=document.getElementById('pa-stage').getBoundingClientRect();
+  let left=sc.x-sb.left+n.r+14, top=sc.y-sb.top-20;
+  if(left+270>sb.width) left=sc.x-sb.left-284;
+  top=Math.max(0, Math.min(top, sb.height-150));
+  card.style.left=left+'px'; card.style.top=top+'px'; card.classList.add('show');
+}
+window.paOpenModal=function(id){
+  const n=nodeById[id], col=CL[n.cl].hex;
+  modalBox.innerHTML=`<button class="pa-modal-x" onclick="paCloseModal()">×</button>`
+    +`<div class="pa-m-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div>`
+    +`<div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div>`
+    +`<ul class="pa-full">${n.full.map(x=>`<li>${x}</li>`).join('')}</ul>`
+    +`<div class="pa-m-sub">Stack</div><div class="pa-tags">${n.tags.map(t=>`<span>${t}</span>`).join('')}</div>`
+    +(n.links.length?`<div class="pa-links">${n.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} ↗</a>`).join('')}</div>`:``);
+  modal.classList.add('show'); card.classList.remove('show');
+};
+window.paCloseModal=function(){ modal.classList.remove('show'); };
+modal.addEventListener('click', e=>{ if(e.target===modal) window.paCloseModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') window.paCloseModal(); });
+
+window.paSetView=function(v){
+  const g = v==='graph';
+  document.getElementById('pa-stage').classList.toggle('on', g);
+  document.getElementById('pa-list').classList.toggle('off', g);
+  document.getElementById('pa-tg').classList.toggle('active', g);
+  document.getElementById('pa-tl').classList.toggle('active', !g);
+};
+</script>
+</body>
+</html>
