@@ -514,6 +514,17 @@ const N = [
     full:['Fine-tuned SQLCoder-7B using LoRA for a natural-language-to-SQL task.',
       'Combined fine-tuning with a RAG layer for schema grounding, reaching 87.5% accuracy on held-out queries.'],
     tags:['LoRA','SQLCoder-7B','RAG','Fine-tuning'], links:[] },
+  { id:'prosthetic', label:'Prosthetic Design Studio', cl:'agentic', g:'PD',
+    desc:'Full-stack web app that generates personalized AI prosthetic leg designs and emails them to manufacturers automatically.',
+    full:['Built a Next.js frontend with 4 style preference dropdowns — color, pattern, theme, and manufacturer — deployed live on Vercel.',
+      'Integrated Pollinations.ai for free AI image generation, producing photorealistic prosthetic leg designs from text prompts.',
+      'Deployed a Python Playwright automation script as an Apify Actor that headlessly logs into Vizcom, uploads leg.png to the canvas, and injects style prompts — reverse-engineering Vizcom\'s UI since it has no public API.',
+      'Built a Mastra MCP orchestration pipeline in Node.js to coordinate image generation, 3D GLB model creation, and email delivery.',
+      'Generated production-ready .glb 3D model files programmatically using Python\'s trimesh library with user-selected colors applied.',
+      'Automated email delivery to prosthetics manufacturers (Ottobock, Össur, Fillauer) via Arcade.dev Gmail integration.',
+      'Evaluated 6 different AI image APIs before settling on Pollinations.ai as the only truly free, no-key-required option.'],
+    tags:['Next.js','Python','Playwright','Apify','Mastra MCP','Pollinations.ai','Arcade.dev','trimesh','Vercel'],
+    links:[['Live Demo','https://prosthetic-design.vercel.app'],['GitHub','https://github.com/vineesha035/Prosthetic-design']] },
   { id:'dynaledger', label:'DynaLedger', cl:'data', g:'DL',
     desc:'An SEC filings ingestion and modeling pipeline orchestrated with Airflow and dbt.',
     full:['Built an ingestion and transformation pipeline for SEC filings data using Airflow for orchestration and dbt for modeling.',
@@ -535,7 +546,7 @@ const N = [
       'Built an interactive dashboard (FastAPI, Streamlit, Napari, WebSockets) for visualizing results.'],
     tags:['CT Imaging','Agentic AI','FastAPI','Streamlit','Napari'], links:[] },
 ];
-const E = [ {a:'investorintel',b:'querycraft'}, {a:'dynaledger',b:'marketeq'}, {a:'fraudsentinel',b:'ctdefect'} ];
+const E = [  {a:'investorintel',b:'querycraft'}, {a:'dynaledger',b:'marketeq'}, {a:'fraudsentinel',b:'ctdefect'}, {a:'prosthetic',b:'investorintel'}];
 
 const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
 const order=['agentic','data','ml'];
