@@ -3,19 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vineesha Avasarala — Data Science & Agentic AI</title>
 <meta name="description" content="Vineesha Avasarala is an M.S. Computational Data Science student at UC Riverside and Data Analytics Intern at Marketeq Digital, building agentic AI pipelines, fraud models, and data infrastructure.">
 <meta name="author" content="Vineesha Avasarala">
-
-<!-- TODO: fill these in once you have a public URL / handle -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vineesha Avasarala | Data Science & Agentic AI">
 <meta property="og:description" content="M.S. Computational Data Science @ UC Riverside. Building agentic pipelines, fraud models, and data infrastructure.">
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
   :root {
     --serif: 'Fraunces', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -26,7 +21,6 @@
     --transition: 0.25s ease;
     --radius: 3px;
   }
-
   [data-theme="light"] {
     --bg: #F2F0E9;
     --bg-nav: rgba(242, 240, 233, 0.9);
@@ -40,7 +34,6 @@
     --dot: rgba(28,29,27,0.14);
     --card-shadow: 0 4px 20px rgba(20,20,15,0.08);
   }
-
   [data-theme="dark"] {
     --bg: #101216;
     --bg-nav: rgba(16, 18, 22, 0.9);
@@ -54,9 +47,7 @@
     --dot: rgba(228,226,218,0.10);
     --card-shadow: 0 8px 28px rgba(0,0,0,0.5);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html {
     font-family: var(--sans);
     background: var(--bg);
@@ -66,11 +57,8 @@
     transition: background var(--transition), color var(--transition);
   }
   body { overflow-x: hidden; }
-
   ::selection { background: var(--accent); color: #fff; }
   a { color: inherit; }
-
-  /* ---------- nav ---------- */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
@@ -95,13 +83,9 @@
   }
   .theme-toggle svg { width: 15px; height: 15px; stroke: var(--text-mid); fill: none; stroke-width: 1.8; }
   [data-theme="light"] .icon-moon, [data-theme="dark"] .icon-sun { display: none; }
-
-  /* ---------- pages ---------- */
   .page { display: none; padding-top: 58px; min-height: 100vh; }
   .page.active { display: block; }
   .inner { max-width: 880px; margin: 0 auto; padding: 70px 32px 120px; }
-
-  /* ---------- hero ---------- */
   .hero {
     position: relative;
     max-width: 1040px; margin: 0 auto; padding: 100px 32px 90px;
@@ -121,10 +105,7 @@
     opacity: 0.9; pointer-events: none; z-index: 0;
   }
   .lattice-bg span { width: 4px; height: 4px; border-radius: 50%; background: var(--dot); }
-  .hero-tag {
-    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--accent); position: relative; z-index: 1;
-  }
+  .hero-tag { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); position: relative; z-index: 1; }
   .hero-name { font-family: var(--serif); font-weight: 600; font-size: 58px; letter-spacing: -0.01em; color: var(--text-strong); position: relative; z-index: 1; }
   .hero-thesis { font-size: 19px; line-height: 1.55; color: var(--text-mid); max-width: 560px; position: relative; z-index: 1; }
   .hero-thesis .accent { color: var(--text-strong); font-weight: 600; }
@@ -141,13 +122,9 @@
   }
   .hero-link:hover { border-color: var(--accent); color: var(--accent); }
   .hero-link svg { width: 15px; height: 15px; fill: currentColor; }
-
-  /* ---------- section headers ---------- */
   .sec-title { font-family: var(--serif); font-size: 32px; font-weight: 600; color: var(--text-strong); margin-bottom: 6px; }
   .sec-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; }
   .spacer { height: 56px; }
-
-  /* ---------- experience ---------- */
   .experience-layout { display: grid; grid-template-columns: 150px 1fr; gap: 40px; }
   .experience-rail { display: flex; flex-direction: column; gap: 34px; padding-top: 6px; }
   .rail-item { display: flex; flex-direction: column; gap: 3px; }
@@ -169,19 +146,14 @@
     font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: 20px;
     background: var(--accent-soft, rgba(46,77,224,0.08)); color: var(--accent); border: 1px solid transparent;
   }
-  .placeholder { color: var(--text-dim); font-style: italic; }
-
   .sk-group { margin-bottom: 16px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
   .sk-label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); width: 190px; flex-shrink: 0; }
-
-  /* ---------- projects ---------- */
   .pa-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; flex-wrap: wrap; gap: 14px; }
   .pa-toggle { display: flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
   .pa-toggle button { background: none; border: none; padding: 7px 16px; font-size: 13px; font-family: var(--sans); font-weight: 500; color: var(--text-dim); cursor: pointer; }
   .pa-toggle button.active { background: var(--accent); color: #fff; }
   .pa-thesis { font-size: 15px; color: var(--text-mid); max-width: 620px; margin: 18px 0 34px; }
   .pa-thesis .g { color: var(--accent); font-weight: 600; }
-
   .pa-cluster { margin-bottom: 26px; border: 1px solid var(--border); border-left: 3px solid var(--cc); border-radius: 6px; padding: 22px 24px 24px; background: var(--surface); }
   .pa-cl-band { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
   .pa-num {
@@ -204,7 +176,6 @@
   .pa-pcard p { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; margin-bottom: 10px; }
   .pa-chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .pa-chips span { color: var(--cc); }
-
   .pa-stage { display: none; position: relative; }
   .pa-stage.on { display: block; }
   .pa-list.off { display: none; }
@@ -233,7 +204,6 @@
   .pa-card p { font-size: 13px; color: var(--text-mid); line-height: 1.5; margin-bottom: 8px; }
   .pa-more { font-size: 11px; color: var(--text-dim); }
   .pa-hint { text-align: center; font-size: 12px; color: var(--text-dim); margin-top: 10px; }
-
   .pa-modal {
     display: none; position: fixed; inset: 0; z-index: 200; background: rgba(10,10,9,0.55);
     align-items: center; justify-content: center; padding: 24px;
@@ -252,8 +222,6 @@
   .pa-m-sub { font-family: var(--mono); font-size: 11px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
   .pa-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
   .pa-links a { font-size: 13.5px; color: var(--accent); text-decoration: none; margin-right: 16px; }
-
-  /* ---------- contact ---------- */
   .contact-box { max-width: 560px; }
   .contact-lead { font-size: 17px; color: var(--text-mid); line-height: 1.6; margin-bottom: 30px; }
   .contact-rows { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); }
@@ -261,7 +229,6 @@
   .contact-row .k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); }
   .contact-row a { font-size: 15px; text-decoration: none; color: var(--text-strong); font-weight: 500; }
   .contact-row a:hover { color: var(--accent); }
-
   @media (max-width: 760px) {
     nav { padding: 0 18px; }
     .nav-left { gap: 20px; }
@@ -335,7 +302,6 @@
   <div class="inner">
     <h2 class="sec-title">Work</h2>
     <p class="sec-sub">Where I've worked and what I've built.</p>
-
     <div class="experience-layout">
       <aside class="experience-rail">
         <div class="rail-item"><span class="rail-date">Jul 2026 – Aug 2026</span><span class="rail-co">LLNL Data Science Challenge</span></div>
@@ -343,7 +309,6 @@
         <div class="rail-item"><span class="rail-date">Oct 2025 – Present</span><span class="rail-co">Research Assistant</span></div>
         <div class="rail-item"><span class="rail-date">Jan 2025 – May 2025</span><span class="rail-co">Nuvama Wealth</span></div>
       </aside>
-
       <div class="timeline">
         <div class="w-item">
           <div class="w-top"><span class="w-co">LLNL Data Science Challenge</span><span class="w-date">Jul 2026 – Aug 2026</span></div>
@@ -357,7 +322,6 @@
           </ul>
           <div class="w-tags"><span>Agentic AI</span><span>CT Imaging</span><span>FastAPI</span><span>Streamlit</span><span>Napari</span><span>WebSockets</span></div>
         </div>
-
         <div class="w-item">
           <div class="w-top"><span class="w-co">Marketeq Digital</span><span class="w-date">Jun 2026 – Present</span></div>
           <div class="w-role">Data Analytics Intern</div>
@@ -370,35 +334,32 @@
           </ul>
           <div class="w-tags"><span>Next.js 14</span><span>FastAPI</span><span>NLP</span><span>Vector Embeddings</span><span>Lead Scoring</span><span>Data Enrichment</span></div>
         </div>
-
         <div class="w-item">
           <div class="w-top"><span class="w-co">UC Riverside</span><span class="w-date">Oct 2025 – Present</span></div>
           <div class="w-role">Research Assistant, Part-Time (Autoformalization / LLM Reasoning)</div>
           <div class="w-loc">Riverside, CA</div>
           <ul class="w-body">
-            <li>Analyzed the <strong>ATF (Autoformalizer with Tool Feedback)</strong> paper on Lean 4 autoformalization, identifying that its LLM-judge consistency check has only ~60% recall and degrades sharply across revision attempts (69.5% → 8.8% success by attempt 8).</li>
-            <li>Proposed a follow-up direction to build a realistic consistency benchmark from <strong>real formalizer failures</strong> — using the released Numina-ATF dataset or an open formalizer like Kimina-Autoformalizer-7B — instead of the paper's synthetic negatives.</li>
-            <li>Designed a <strong>localized, structured judge-feedback</strong> approach — flagging the specific problematic token/quantifier instead of binary pass/fail — to test whether it improves revision success on later attempts, where the current pipeline degrades most.</li>
-            <li>Scoped the proposal to student-project scale (inference-only judge evaluation, or small <strong>LoRA</strong> fine-tuning on 7–8B models) given the original pipeline used 128 NPUs and full 32B fine-tuning.</li>
+            <li>Analyzed the <strong>ATF (Autoformalizer with Tool Feedback)</strong> paper on Lean 4 autoformalization, identifying that its LLM-judge consistency check has only ~60% recall and degrades sharply across revision attempts (69.5% to 8.8% success by attempt 8).</li>
+            <li>Proposed a follow-up direction to build a realistic consistency benchmark from <strong>real formalizer failures</strong> using the released Numina-ATF dataset or an open formalizer like Kimina-Autoformalizer-7B.</li>
+            <li>Designed a <strong>localized, structured judge-feedback</strong> approach — flagging the specific problematic token/quantifier instead of binary pass/fail — to test whether it improves revision success on later attempts.</li>
+            <li>Scoped the proposal to student-project scale (inference-only judge evaluation, or small <strong>LoRA</strong> fine-tuning on 7-8B models).</li>
           </ul>
           <div class="w-tags"><span>LLM-as-Judge</span><span>Autoformalization</span><span>Lean 4</span><span>LoRA</span><span>Research</span></div>
         </div>
-
         <div class="w-item">
           <div class="w-top"><span class="w-co">Nuvama Wealth and Investment Limited</span><span class="w-date">Jan 2025 – May 2025</span></div>
           <div class="w-role">Data Science Intern</div>
           <div class="w-loc">Mumbai, India</div>
           <ul class="w-body">
-            <li>Performed <strong>40+ SQL-based negative data checks</strong> across UCC creation, registration codes, and EQ/OTC sync — where mismatched client records risked feeding bad data into portfolio recommendations — driving data accuracy to ~99%+ across client buckets.</li>
-            <li>Built <strong>Python Selenium scripts</strong> to automate portfolio syncing, replacing manual PAN-by-PAN entry into the MARS platform, so hundreds of client portfolios could sync without per-client manual work.</li>
-            <li>Reviewed <strong>40+ high-net-worth client portfolios</strong> in Excel (Pivot Tables, VLOOKUP/XLOOKUP, conditional formatting) to flag tail-end holdings under 1% of portfolio value, giving RMs a clear view of allocation gaps to act on.</li>
-            <li>Analyzed synced portfolio data from <strong>Tableau</strong> using <strong>Pandas</strong>, <strong>NumPy</strong>, and <strong>SciPy</strong> to assess risk and diversification, feeding directly into rebalancing strategies aligned to each client's age and risk profile.</li>
+            <li>Performed <strong>40+ SQL-based negative data checks</strong> across UCC creation, registration codes, and EQ/OTC sync, driving data accuracy to ~99%+ across client buckets.</li>
+            <li>Built <strong>Python Selenium scripts</strong> to automate portfolio syncing, replacing manual PAN-by-PAN entry into the MARS platform.</li>
+            <li>Reviewed <strong>40+ high-net-worth client portfolios</strong> in Excel to flag tail-end holdings under 1% of portfolio value, giving RMs a clear view of allocation gaps.</li>
+            <li>Analyzed synced portfolio data using <strong>Pandas</strong>, <strong>NumPy</strong>, and <strong>SciPy</strong> to assess risk and diversification, feeding into rebalancing strategies aligned to each client's risk profile.</li>
           </ul>
           <div class="w-tags"><span>SQL</span><span>Python</span><span>Selenium</span><span>Pandas</span><span>NumPy</span><span>SciPy</span><span>Tableau</span><span>Excel</span></div>
         </div>
       </div>
     </div>
-
     <div class="spacer"></div>
     <h2 class="sec-title">Education</h2>
     <div class="w-item">
@@ -406,18 +367,16 @@
       <div class="w-role">M.S. Computational Data Science</div>
       <div class="w-loc">Coursework: Artificial Intelligence, Data Mining Techniques, Database Management Systems, Colloquium in Computer Science, DS Ethics, Foundations of Machine Learning, Data Analytics and Exploration, Natural Language Processing, Introduction to Deep Learning, Advanced Machine Learning.</div>
     </div>
-
     <div class="spacer"></div>
     <h2 class="sec-title">Skills</h2>
     <div class="sk-group"><div class="sk-label">Languages</div><div class="w-tags"><span>Python</span><span>SQL</span><span>Java</span><span>Scala</span><span>JavaScript</span><span>TypeScript</span><span>C++</span><span>Bash/Shell</span><span>HTML</span><span>YAML</span></div></div>
-    <div class="sk-group"><div class="sk-label">ML / DL / NLP</div><div class="w-tags"><span>PyTorch</span><span>TensorFlow</span><span>TensorFlow Lite</span><span>scikit-learn</span><span>Keras</span><span>XGBoost</span><span>CNNs</span><span>Transformers</span><span>Fine-Tuning</span><span>LoRA</span><span>SFT / DPO</span><span>BERT</span><span>GPT</span><span>Hugging Face</span><span>OpenCV</span><span>Feature Engineering</span></div></div>
+    <div class="sk-group"><div class="sk-label">ML / DL / NLP</div><div class="w-tags"><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>Keras</span><span>XGBoost</span><span>CNNs</span><span>Transformers</span><span>Fine-Tuning</span><span>LoRA</span><span>BERT</span><span>GPT</span><span>Hugging Face</span><span>OpenCV</span></div></div>
     <div class="sk-group"><div class="sk-label">Agentic AI & LLMs</div><div class="w-tags"><span>LangChain</span><span>LangGraph</span><span>RAG Pipelines</span><span>Agentic Workflows</span><span>LLM APIs</span><span>OpenAI API</span><span>Embedding Models</span><span>Vector Search</span><span>LLM-as-Judge</span></div></div>
-    <div class="sk-group"><div class="sk-label">Data Engineering & Big Data</div><div class="w-tags"><span>ETL/ELT</span><span>Apache Spark (PySpark)</span><span>Hadoop</span><span>Kafka</span><span>Hive</span><span>Apache Airflow</span><span>dbt</span><span>Batch & Stream Processing</span><span>Data Modeling</span><span>Databricks</span><span>RabbitMQ</span></div></div>
-    <div class="sk-group"><div class="sk-label">Databases & Warehouses</div><div class="w-tags"><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>SQLite</span><span>Firebase</span><span>DynamoDB</span><span>Elasticsearch</span><span>Snowflake</span><span>Pinecone</span><span>Vector DBs</span><span>GraphQL</span></div></div>
-    <div class="sk-group"><div class="sk-label">Cloud & DevOps</div><div class="w-tags"><span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span><span>GCP (BigQuery)</span><span>Azure</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>CI/CD</span><span>Jenkins</span><span>GitHub Actions</span><span>Prometheus</span><span>MLflow</span><span>Weights & Biases</span></div></div>
-    <div class="sk-group"><div class="sk-label">Frameworks & Web</div><div class="w-tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Flask</span><span>FastAPI</span><span>Django</span><span>Spring Boot</span><span>Redux</span><span>Tailwind CSS</span><span>Angular</span><span>Vue.js</span></div></div>
-    <div class="sk-group"><div class="sk-label">Systems & Architecture</div><div class="w-tags"><span>Microservices</span><span>REST APIs</span><span>WebSockets</span><span>gRPC</span></div></div>
-    <div class="sk-group"><div class="sk-label">Tools & Testing</div><div class="w-tags"><span>Git</span><span>Linux</span><span>Postman</span><span>Excel</span><span>Visual Basic</span><span>Streamlit</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span><span>JUnit</span><span>PyTest</span><span>Jest</span><span>Cypress</span><span>Selenium</span></div></div>
+    <div class="sk-group"><div class="sk-label">Data Engineering</div><div class="w-tags"><span>ETL/ELT</span><span>Apache Spark</span><span>Hadoop</span><span>Kafka</span><span>Apache Airflow</span><span>dbt</span><span>Databricks</span><span>RabbitMQ</span></div></div>
+    <div class="sk-group"><div class="sk-label">Databases</div><div class="w-tags"><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>Firebase</span><span>Snowflake</span><span>Pinecone</span><span>Vector DBs</span></div></div>
+    <div class="sk-group"><div class="sk-label">Cloud & DevOps</div><div class="w-tags"><span>AWS</span><span>GCP</span><span>Azure</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span><span>GitHub Actions</span><span>MLflow</span></div></div>
+    <div class="sk-group"><div class="sk-label">Frameworks & Web</div><div class="w-tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Flask</span><span>FastAPI</span><span>Django</span><span>Tailwind CSS</span></div></div>
+    <div class="sk-group"><div class="sk-label">Tools</div><div class="w-tags"><span>Git</span><span>Linux</span><span>Postman</span><span>Streamlit</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Selenium</span><span>Playwright</span><span>Apify</span></div></div>
   </div>
 </div>
 
@@ -428,18 +387,17 @@
       <div class="pa-head">
         <div>
           <h2 class="sec-title">Projects</h2>
-          <p class="sec-sub" style="margin-bottom:0">Agentic pipelines, fraud models, and data infrastructure.</p>
+          <p class="sec-sub" style="margin-bottom:0">Agentic pipelines, fraud models, full-stack apps, and data infrastructure.</p>
         </div>
         <div class="pa-toggle">
-          <button id="pa-tl" class="active" onclick="paSetView('list')">≡ List</button>
-          <button id="pa-tg" onclick="paSetView('graph')">◌ Map</button>
+          <button id="pa-tl" class="active" onclick="paSetView('list')">= List</button>
+          <button id="pa-tg" onclick="paSetView('graph')">O Map</button>
         </div>
       </div>
-      <div class="pa-thesis">Three focus areas: <span class="g">agentic AI</span>, <span class="g">data engineering</span>, and <span class="g">applied ML</span>. Click any project for the full write-up.</div>
-
+      <div class="pa-thesis">Four focus areas: <span class="g">agentic AI</span>, <span class="g">data engineering</span>, <span class="g">applied ML</span>, and <span class="g">full-stack</span>. Click any project for the full write-up.</div>
       <div class="pa-list" id="pa-list"></div>
       <div class="pa-stage" id="pa-stage">
-        <svg id="pa-svg" class="pa-graph" viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+        <svg id="pa-svg" class="pa-graph" viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg">
           <g id="pa-halos"></g><g id="pa-edges"></g><g id="pa-nodes"></g>
         </svg>
         <div class="pa-card" id="pa-card"></div>
@@ -467,7 +425,6 @@
 </div>
 
 <script>
-/* ---------- theme ---------- */
 function toggleTheme(){
   const html=document.documentElement;
   const next = html.getAttribute('data-theme')==='light' ? 'dark' : 'light';
@@ -475,14 +432,10 @@ function toggleTheme(){
   localStorage.setItem('theme', next);
 }
 (function(){ const saved=localStorage.getItem('theme'); if(saved) document.documentElement.setAttribute('data-theme', saved); })();
-
-/* ---------- lattice hero decoration ---------- */
 (function(){
   const el=document.getElementById('latticeBg');
   for(let i=0;i<90;i++){ const s=document.createElement('span'); s.style.opacity=(0.3+Math.random()*0.7); el.appendChild(s); }
 })();
-
-/* ---------- nav ---------- */
 function go(id, btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -491,14 +444,24 @@ function go(id, btn){
   window.scrollTo(0,0);
 }
 
-/* ---------- projects data ---------- */
 const CL = {
-  agentic: { name:'Agentic AI', sub:'Multi-agent systems that plan, retrieve, and act on their own — not single-shot prompts.', hex:'#2E4DE0' },
-  data:    { name:'Data Engineering', sub:'Pipelines that keep data trustworthy on the way from raw source to warehouse.', hex:'#1E8A72' },
-  ml:      { name:'Applied ML', sub:'Models tested against messy, real-world data — not just clean benchmarks.', hex:'#C4581F' },
+  agentic:   { name:'Agentic AI',        sub:'Multi-agent systems that plan, retrieve, and act on their own — not single-shot prompts.',          hex:'#2E4DE0' },
+  data:      { name:'Data Engineering',  sub:'Pipelines that keep data trustworthy on the way from raw source to warehouse.',                      hex:'#1E8A72' },
+  ml:        { name:'Applied ML',        sub:'Models tested against messy, real-world data — not just clean benchmarks.',                         hex:'#C4581F' },
+  fullstack: { name:'Full Stack',        sub:'End-to-end applications connecting AI, automation, and user-facing interfaces.',                     hex:'#7C3AED' },
 };
 
 const N = [
+  { id:'prosthetic', label:'Prosthetic Design', cl:'fullstack', g:'PD',
+    desc:'Full-stack web app that generates personalized AI prosthetic leg designs and emails them automatically to manufacturers.',
+    full:['Built a Next.js frontend with 4 style preference dropdowns (color, pattern, theme, manufacturer) deployed live on Vercel.',
+      'Integrated Pollinations.ai for free AI image generation — evaluated 6 different APIs before finding one that was truly free and required no API key.',
+      'Reverse-engineered Vizcom\'s UI using Playwright since it has no public API, deploying the automation script as an Apify Actor on the cloud.',
+      'Built a Mastra MCP orchestration pipeline in Node.js to coordinate image generation, 3D model creation, and email delivery in sequence.',
+      'Generated production-ready .glb 3D model files programmatically using Python trimesh library with user-selected colors applied.',
+      'Automated email delivery to prosthetics manufacturers (Ottobock, Ossur, Fillauer) via Arcade.dev Gmail integration.'],
+    tags:['Next.js','Python','Playwright','Apify','Mastra MCP','Pollinations.ai','Arcade.dev','Vercel'],
+    links:[['Live Demo','https://prosthetic-design.vercel.app'],['GitHub','https://github.com/vineesha035/Prosthetic-design']] },
   { id:'investorintel', label:'InvestorIntel', cl:'agentic', g:'II',
     desc:'A 5-agent LangGraph pipeline coordinating retrieval, analysis, and report-writing for investment research.',
     full:['Architected a 5-agent pipeline in LangGraph, splitting retrieval, analysis, and report-writing across dedicated agents.',
@@ -514,17 +477,6 @@ const N = [
     full:['Fine-tuned SQLCoder-7B using LoRA for a natural-language-to-SQL task.',
       'Combined fine-tuning with a RAG layer for schema grounding, reaching 87.5% accuracy on held-out queries.'],
     tags:['LoRA','SQLCoder-7B','RAG','Fine-tuning'], links:[] },
-  { id:'prosthetic', label:'Prosthetic Design Studio', cl:'agentic', g:'PD',
-    desc:'Full-stack web app that generates personalized AI prosthetic leg designs and emails them to manufacturers automatically.',
-    full:['Built a Next.js frontend with 4 style preference dropdowns — color, pattern, theme, and manufacturer — deployed live on Vercel.',
-      'Integrated Pollinations.ai for free AI image generation, producing photorealistic prosthetic leg designs from text prompts.',
-      'Deployed a Python Playwright automation script as an Apify Actor that headlessly logs into Vizcom, uploads leg.png to the canvas, and injects style prompts — reverse-engineering Vizcom\'s UI since it has no public API.',
-      'Built a Mastra MCP orchestration pipeline in Node.js to coordinate image generation, 3D GLB model creation, and email delivery.',
-      'Generated production-ready .glb 3D model files programmatically using Python\'s trimesh library with user-selected colors applied.',
-      'Automated email delivery to prosthetics manufacturers (Ottobock, Össur, Fillauer) via Arcade.dev Gmail integration.',
-      'Evaluated 6 different AI image APIs before settling on Pollinations.ai as the only truly free, no-key-required option.'],
-    tags:['Next.js','Python','Playwright','Apify','Mastra MCP','Pollinations.ai','Arcade.dev','trimesh','Vercel'],
-    links:[['Live Demo','https://prosthetic-design.vercel.app'],['GitHub','https://github.com/vineesha035/Prosthetic-design']] },
   { id:'dynaledger', label:'DynaLedger', cl:'data', g:'DL',
     desc:'An SEC filings ingestion and modeling pipeline orchestrated with Airflow and dbt.',
     full:['Built an ingestion and transformation pipeline for SEC filings data using Airflow for orchestration and dbt for modeling.',
@@ -546,43 +498,50 @@ const N = [
       'Built an interactive dashboard (FastAPI, Streamlit, Napari, WebSockets) for visualizing results.'],
     tags:['CT Imaging','Agentic AI','FastAPI','Streamlit','Napari'], links:[] },
 ];
-const E = [  {a:'investorintel',b:'querycraft'}, {a:'dynaledger',b:'marketeq'}, {a:'fraudsentinel',b:'ctdefect'}, {a:'prosthetic',b:'investorintel'}];
+
+const E = [
+  {a:'investorintel',b:'querycraft'},
+  {a:'dynaledger',b:'marketeq'},
+  {a:'fraudsentinel',b:'ctdefect'},
+  {a:'prosthetic',b:'investorintel'},
+];
 
 const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
-const order=['agentic','data','ml'];
+const order=['agentic','data','ml','fullstack'];
 
-/* fixed hand-placed layout (three clusters) */
 const POS = {
-  investorintel:{x:230,y:150}, safehive:{x:130,y:260}, querycraft:{x:290,y:280},
+  investorintel:{x:230,y:150}, safehive:{x:130,y:280}, querycraft:{x:290,y:300},
   dynaledger:{x:620,y:150}, marketeq:{x:730,y:270},
-  fraudsentinel:{x:430,y:470}, ctdefect:{x:600,y:470},
+  fraudsentinel:{x:430,y:500}, ctdefect:{x:600,y:500},
+  prosthetic:{x:830,y:470},
 };
 N.forEach(n=>{ n.x=POS[n.id].x; n.y=POS[n.id].y; n.r=26; });
+
 const HALO = {
-  agentic:{hx:215,hy:220,rx:150,ry:130,tx:215,ty:70},
-  data:{hx:675,hy:210,rx:150,ry:130,tx:675,ty:70},
-  ml:{hx:515,hy:470,rx:190,ry:100,tx:515,ty:590},
+  agentic:   {hx:215,hy:230,rx:150,ry:140,tx:215,ty:70},
+  data:      {hx:675,hy:210,rx:150,ry:130,tx:675,ty:70},
+  ml:        {hx:515,hy:500,rx:190,ry:100,tx:515,ty:620},
+  fullstack: {hx:830,hy:470,rx:120,ry:90, tx:830,ty:350},
 };
 
 const root=document.getElementById('projects-atlas');
 const NS='http://www.w3.org/2000/svg';
 const svg=document.getElementById('pa-svg');
 const gH=document.getElementById('pa-halos'), gE=document.getElementById('pa-edges'), gN=document.getElementById('pa-nodes');
-const card=document.getElementById('pa-card'); const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
+const card=document.getElementById('pa-card');
+const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
 const listEl=document.getElementById('pa-list');
 
-/* ---- LIST ---- */
 order.forEach((k,i)=>{
   const c=CL[k]; const items=N.filter(n=>n.cl===k);
   const clDiv=document.createElement('div'); clDiv.className='pa-cluster'; clDiv.style.setProperty('--cc', c.hex);
   let cards='';
-  items.forEach(n=>{ cards+=`<button class="pa-pcard" data-id="${n.id}"><div class="pa-pt"><b>${n.label}</b><span class="pa-ex">full write-up →</span></div><p>${n.desc}</p><div class="pa-chips">${n.tags.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div></button>`; });
+  items.forEach(n=>{ cards+=`<button class="pa-pcard" data-id="${n.id}"><div class="pa-pt"><b>${n.label}</b><span class="pa-ex">full write-up</span></div><p>${n.desc}</p><div class="pa-chips">${n.tags.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div></button>`; });
   clDiv.innerHTML=`<div class="pa-cl-band"><span class="pa-num">${String(i+1).padStart(2,'0')}</span><div class="pa-txt"><h3>${c.name}</h3><div class="pa-sub">${c.sub}</div></div><span class="pa-cnt">${items.length} project${items.length>1?'s':''}</span></div><div class="pa-cl-body">${cards}</div>`;
   listEl.appendChild(clDiv);
 });
 listEl.addEventListener('click', e=>{ const b=e.target.closest('.pa-pcard'); if(b) paOpenModal(b.dataset.id); });
 
-/* ---- MAP ---- */
 Object.entries(HALO).forEach(([k,h])=>{
   const c=CL[k]; const g=document.createElementNS(NS,'g'); g.setAttribute('class','pa-halo'); g.dataset.cl=k;
   const e=document.createElementNS(NS,'ellipse');
@@ -591,6 +550,7 @@ Object.entries(HALO).forEach(([k,h])=>{
   const t=document.createElementNS(NS,'text'); t.setAttribute('class','pa-cl-title'); t.setAttribute('x',h.tx); t.setAttribute('y',h.ty); t.setAttribute('text-anchor','middle'); t.setAttribute('fill',c.hex); t.textContent=c.name.toUpperCase();
   g.append(e,t); gH.appendChild(g);
 });
+
 function curve(a,b){ const mx=(a.x+b.x)/2, my=(a.y+b.y)/2, dx=b.x-a.x, dy=b.y-a.y; return `M ${a.x} ${a.y} Q ${mx-dy*0.15} ${my+dx*0.15} ${b.x} ${b.y}`; }
 E.forEach(e=>{ const a=nodeById[e.a], b=nodeById[e.b]; const p=document.createElementNS(NS,'path'); p.setAttribute('class','pa-edge'); p.setAttribute('d',curve(a,b)); p.setAttribute('stroke',CL[a.cl].hex); e.line=p; gE.appendChild(p); });
 
@@ -627,7 +587,7 @@ function paBlur(){
 card.addEventListener('mouseleave', paBlur);
 function paShowCard(id){
   const n=nodeById[id], col=CL[n.cl].hex;
-  card.innerHTML=`<div class="pa-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div><div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div><p>${n.desc}</p><div class="pa-more">click for full details →</div>`;
+  card.innerHTML=`<div class="pa-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div><div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div><p>${n.desc}</p><div class="pa-more">click for full details</div>`;
   const pt=svg.createSVGPoint(); pt.x=n.x; pt.y=n.y; const sc=pt.matrixTransform(svg.getScreenCTM());
   const sb=document.getElementById('pa-stage').getBoundingClientRect();
   let left=sc.x-sb.left+n.r+14, top=sc.y-sb.top-20;
@@ -637,18 +597,17 @@ function paShowCard(id){
 }
 window.paOpenModal=function(id){
   const n=nodeById[id], col=CL[n.cl].hex;
-  modalBox.innerHTML=`<button class="pa-modal-x" onclick="paCloseModal()">×</button>`
+  modalBox.innerHTML=`<button class="pa-modal-x" onclick="paCloseModal()">x</button>`
     +`<div class="pa-m-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div>`
     +`<div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div>`
     +`<ul class="pa-full">${n.full.map(x=>`<li>${x}</li>`).join('')}</ul>`
     +`<div class="pa-m-sub">Stack</div><div class="pa-tags">${n.tags.map(t=>`<span>${t}</span>`).join('')}</div>`
-    +(n.links.length?`<div class="pa-links">${n.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} ↗</a>`).join('')}</div>`:``);
+    +(n.links.length?`<div class="pa-links">${n.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join('')}</div>`:``);
   modal.classList.add('show'); card.classList.remove('show');
 };
 window.paCloseModal=function(){ modal.classList.remove('show'); };
 modal.addEventListener('click', e=>{ if(e.target===modal) window.paCloseModal(); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') window.paCloseModal(); });
-
 window.paSetView=function(v){
   const g = v==='graph';
   document.getElementById('pa-stage').classList.toggle('on', g);
